@@ -48,7 +48,7 @@ public class Planet {
     }
     public void distory(Canvas c,Resources res){
         if(exp>0) {
-            int scale = (int) (255- exp +0.02*r+0.01*m * (vx * vx + vy * vy));
+            int scale = (int) (255- exp +0.2*r+0.01*m * (vx * vx + vy * vy));
             Paint p = new Paint();
             p.setAlpha(exp);
             Rect rect = new Rect((int) x - scale, (int) y - scale, (int) x + scale, (int) y + scale);

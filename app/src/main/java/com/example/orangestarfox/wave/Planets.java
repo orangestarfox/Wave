@@ -1,5 +1,8 @@
 package com.example.orangestarfox.wave;
 
+import android.content.res.Resources;
+import android.graphics.Canvas;
+
 /**
  * Created by orangestarfox on 2018/3/25.
  */
@@ -21,5 +24,29 @@ public class Planets {
     }
     public Planet getPlanet(int i){
         return planet[i];
+    }
+    public void Change(Canvas c, Resources res){
+        for (int k=0;k<Count();k++) {
+            if ( !planet[k].exist) {
+                planet[k].distory(c, res);
+
+            }
+            if ( planet[k].exist) {
+                for (int kk = 0; kk < Count(); kk++) {
+                    if (planet[kk].exist && planet[k].exist && kk != k) {
+                        planet[k].F(planet[kk].x, planet[kk].y, planet[kk].m, planet[kk].r);
+                        if (!planet[k].exist&&planet[kk].ModelDeadPath!=123456) {
+                            planet[kk].exist = false;
+                            break;
+                        }
+                        planet[k].move();
+
+                    }
+                }
+                planet[k].show(c, res);
+
+            }
+
+        }
     }
 }

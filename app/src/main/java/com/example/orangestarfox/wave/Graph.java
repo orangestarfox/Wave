@@ -41,10 +41,6 @@ public class Graph extends AppCompatActivity implements OnTouchListener {
             this.holder = holder;
         }
 
-        private int i=0,tailLen=4000;
-        private float[] x=new float[tailLen];
-        private float[] y=new float[tailLen];
-
 
         public void run() {
             while (this.isRun) {
@@ -69,30 +65,7 @@ public class Graph extends AppCompatActivity implements OnTouchListener {
                         Rect rect=new Rect(0,0,a,b);
                         c.drawColor(0);
                         if(planets.Count()>1){
-                       for (int k=0;k<planets.Count();k++) {
-                                          if ( !planets.getPlanet(k).exist) {
-                                planets.getPlanet(k).distory(c, res);
-
-                            }
-                               if ( planets.getPlanet(k).exist) {
-                                for (int kk = 0; kk < planets.Count(); kk++) {
-                                    if (planets.getPlanet(kk).exist && planets.getPlanet(k).exist && kk != k) {
-                                        planets.getPlanet(k).F(planets.getPlanet(kk).x, planets.getPlanet(kk).y, planets.getPlanet(kk).m, planets.getPlanet(kk).r);
-                                        if (!planets.getPlanet(k).exist&&planets.getPlanet(kk).ModelDeadPath!=123456) {
-                                            planets.getPlanet(kk).exist = false;
-                                            break;
-                                        }
-                                        planets.getPlanet(k).move();
-
-                                    }
-                                }
-                                planets.getPlanet(k).show(c, res);
-
-                            }
-
-                        }
-
-
+                            planets.Change(c,res);
                       }
                     }
 
