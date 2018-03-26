@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/mode1"
+            android:title="Mode1" />
+        <item
+            android:id="@+id/mode2"
+            android:title="Mode2" />
+        <item
+            android:id="@+id/mode3"
+            android:title="Mode3" />
+        <item
+            android:id="@+id/mode4"
+
+            android:title="Mode4" />
+    </group>
+
+</menu>
