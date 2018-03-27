@@ -33,7 +33,6 @@ public class Graph extends AppCompatActivity implements OnTouchListener {
     public static Planet planet;
     public static int[] stars;
     public static Planets planets;
-    public static Bitmap[] bitmaps=new Bitmap[6];
     class MyThread extends Thread {
         private SurfaceHolder holder;
         private boolean isRun = true;
@@ -58,7 +57,10 @@ public class Graph extends AppCompatActivity implements OnTouchListener {
                         int b=c.getHeight();
                         if(planets.Count()==0){
 
-                            planet=new Planet((double)a/stars[3],(double) b/stars[4],0,0,stars[0],stars[1],R.drawable.pic2,123456);
+                            Bitmap bitmap1=BitmapFactory.decodeResource(res,R.drawable.pic2);
+
+                            Bitmap bitmap2=null;
+                            planet=new Planet((double)a/stars[3],(double) b/stars[4],0,0,stars[0],stars[1],bitmap1,bitmap2);
                             planets.add(planet);
                             planet.show(c,res);
                         }
@@ -142,7 +144,10 @@ public void onBackPressed(){
             case  MotionEvent.ACTION_UP /*pic*/:
                  xUp = event.getX();
                  yUp = event.getY();
-                planet=new Planet(xDown,yDown,(xUp-xDown)/500,(yUp-yDown)/500,70,10,R.drawable.pic3,R.drawable.pic12);
+                 Bitmap bitmap1=BitmapFactory.decodeResource(res,R.drawable.pic3);
+
+                Bitmap bitmap2=BitmapFactory.decodeResource(res,R.drawable.pic12);
+                planet=new Planet(xDown,yDown,(xUp-xDown)/500,(yUp-yDown)/500,70,10,bitmap1,bitmap2);
                 n++;
                 planets.add(planet);
                 break;

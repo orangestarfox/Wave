@@ -35,7 +35,7 @@ public class Planets {
                 for (int kk = 0; kk < Count(); kk++) {
                     if (planet[kk].exist && planet[k].exist && kk != k) {
                         planet[k].F(planet[kk].x, planet[kk].y, planet[kk].m, planet[kk].r);
-                        if (!planet[k].exist&&planet[kk].ModelDeadPath!=123456) {
+                        if (!planet[k].exist&&planet[kk].ModelDeadBitmap!=null) {
                             planet[kk].exist = false;
                             break;
                         }
