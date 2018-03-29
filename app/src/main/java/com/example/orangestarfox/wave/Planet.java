@@ -63,12 +63,12 @@ public class Planet {
         vx=vx+ax;
         vy=vy+ay;
     }
-    public void F(double X,double Y,int M,int r){
+    public void F(double X,double Y,int M,int r,int G){
        double R=(Math.pow((X-x),2)+Math.pow((Y-y),2));
        if(R<(r+this.r)*(r+this.r)&&ModelDeadBitmap!=null){
            exist=false;
        }
-        double a=(float)M/R;
+        double a=((double) G/1000)*(float)M/R;
 
         ax=a*(X-x)/Math.sqrt(R);
         ay=a*(Y-y)/Math.sqrt(R);

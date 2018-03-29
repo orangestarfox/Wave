@@ -1,7 +1,6 @@
 package com.example.orangestarfox.wave;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.view.View;
@@ -13,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 
 
 public class MainActivity extends AppCompatActivity
@@ -32,13 +32,40 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+               // SeekBar seekBar1=(SeekBar)findViewById(R.id.r);
+
+             //   SeekBar seekBar2=(SeekBar)findViewById(R.id.m);
+
+               // SeekBar seekBar3=(SeekBar)findViewById(R.id.x);
+
+              //  SeekBar seekBar4=(SeekBar)findViewById(R.id.y);
+              //  int R=seekBar1.getProgress();
+              int[] stars=new int[5];
+
+                EditText editTextR=(EditText)findViewById(R.id.r);
+
+                EditText editTextG=(EditText)findViewById(R.id.g);
+
+                EditText editTextM=(EditText)findViewById(R.id.m);
+
+                EditText editTextX=(EditText)findViewById(R.id.x);
+
+                EditText editTextY=(EditText)findViewById(R.id.y);
                // Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                  //       .setAction("Action", null).show();
-                int[] stars={3000,30,Color.BLUE,3,3};
+                stars[0]=Integer.parseInt("0"+editTextR.getText().toString());
+
+                stars[1]=Integer.parseInt("0"+editTextG.getText().toString());
+
+                stars[2]=Integer.parseInt("0"+editTextM.getText().toString());
+
+                stars[3]=Integer.parseInt("0"+editTextX.getText().toString());
+
+                stars[4]=Integer.parseInt("0"+editTextY.getText().toString());
 
                 Intent intent =new Intent(MainActivity.this, Graph.class);
-                intent.putExtra("stars",stars);
-                MainActivity.this.startActivityForResult(intent, 1);
+              intent.putExtra("stars",stars);
+              MainActivity.this.startActivityForResult(intent, 1);
 
 
 
@@ -103,28 +130,28 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.mode1) {
-            int[] stars={30,30,Color.RED,2,2};
+            int[] stars={30,300,10000,2,2};
 
             Intent intent =new Intent(MainActivity.this, Graph.class);
             intent.putExtra("stars",stars);
             MainActivity.this.startActivityForResult(intent, 1);
             // Handle the camera action
         } else if (id == R.id.mode2) {
-            int[] stars={300,60,Color.BLUE,2,2};
+            int[] stars={300,60,10000,2,2};
 
             Intent intent =new Intent(MainActivity.this, Graph.class);
             intent.putExtra("stars",stars);
             MainActivity.this.startActivityForResult(intent, 1);
 
         } else if (id == R.id.mode3) {
-            int[] stars={3000,1,Color.BLACK,2,2};
+            int[] stars={15,10,100000,2,2};
 
             Intent intent =new Intent(MainActivity.this, Graph.class);
             intent.putExtra("stars",stars);
             MainActivity.this.startActivityForResult(intent, 1);
 
         } else if (id == R.id.mode4) {
-            int[] stars={20,120,Color.YELLOW,2,2};
+            int[] stars={200,120,30000,3,3};
 
             Intent intent =new Intent(MainActivity.this, Graph.class);
             intent.putExtra("stars",stars);

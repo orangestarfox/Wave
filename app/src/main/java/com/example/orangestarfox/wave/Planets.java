@@ -25,7 +25,7 @@ public class Planets {
     public Planet getPlanet(int i){
         return planet[i];
     }
-    public void Change(Canvas c, Resources res){
+    public void Change(Canvas c, Resources res,int G){
         for (int k=0;k<Count();k++) {
             if ( !planet[k].exist) {
                 planet[k].distory(c, res);
@@ -34,7 +34,7 @@ public class Planets {
             if ( planet[k].exist) {
                 for (int kk = 0; kk < Count(); kk++) {
                     if (planet[kk].exist && planet[k].exist && kk != k) {
-                        planet[k].F(planet[kk].x, planet[kk].y, planet[kk].m, planet[kk].r);
+                        planet[k].F(planet[kk].x, planet[kk].y, planet[kk].m, planet[kk].r,G);
                         if (!planet[k].exist&&planet[kk].ModelDeadBitmap!=null) {
                             planet[kk].exist = false;
                             break;

@@ -12,18 +12,13 @@ import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.DisplayMetrics;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceHolder.Callback;
 import android.view.SurfaceView;
 import android.view.View;
 import android.view.View.OnTouchListener;
-import android.view.WindowManager;
 import android.widget.Toast;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class Graph extends AppCompatActivity implements OnTouchListener {
     public static int n=0;
@@ -57,17 +52,17 @@ public class Graph extends AppCompatActivity implements OnTouchListener {
                         int b=c.getHeight();
                         if(planets.Count()==0){
 
-                            Bitmap bitmap1=BitmapFactory.decodeResource(res,R.drawable.pic2);
+                            Bitmap bitmap1=BitmapFactory.decodeResource(res,R.drawable.sun);
 
                             Bitmap bitmap2=null;
-                            planet=new Planet((double)a/stars[3],(double) b/stars[4],0,0,stars[0],stars[1],bitmap1,bitmap2);
+                            planet=new Planet((double)a/stars[3],(double) b/stars[4],0,0,stars[2],stars[0],bitmap1,bitmap2);
                             planets.add(planet);
                             planet.show(c,res);
                         }
                         Rect rect=new Rect(0,0,a,b);
                         c.drawColor(0);
                         if(planets.Count()>1){
-                            planets.Change(c,res);
+                            planets.Change(c,res,stars[1]);
                       }
                     }
 
@@ -144,12 +139,14 @@ public void onBackPressed(){
             case  MotionEvent.ACTION_UP /*pic*/:
                  xUp = event.getX();
                  yUp = event.getY();
-                 Bitmap bitmap1=BitmapFactory.decodeResource(res,R.drawable.pic3);
+                 Bitmap bitmap1=BitmapFactory.decodeResource(res,R.drawable.earth);
 
-                Bitmap bitmap2=BitmapFactory.decodeResource(res,R.drawable.pic12);
-                planet=new Planet(xDown,yDown,(xUp-xDown)/500,(yUp-yDown)/500,70,10,bitmap1,bitmap2);
+                Bitmap bitmap2=BitmapFactory.decodeResource(res,R.drawable.explosion);
+                planet=new Planet(xDown,yDown,(xUp-xDown)/500,(yUp-yDown)/500,5,10,bitmap1,bitmap2);
                 n++;
+
                 planets.add(planet);
+                Toast.makeText(this,String.valueOf(planets.Count()),Toast.LENGTH_LONG).show();
                 break;
 
 
